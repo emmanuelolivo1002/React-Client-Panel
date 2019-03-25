@@ -35,6 +35,9 @@ class Register extends Component {
     // Register with firebase
     firebase
       .createUser({ email, password })
+      .then(() => {
+        history.push("/");
+      })
       .catch(err => notifyUser("That user already exists", "error"));
   };
 
