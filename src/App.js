@@ -13,6 +13,8 @@ import AddClient from "./components/clients/AddClient";
 import ClientDetails from "./components/clients/ClientDetails";
 import EditClient from "./components/clients/EditClient";
 import Login from "./components/auth/Login";
+import Register from "./components/auth/Register";
+import Settings from "./components/settings/Settings";
 
 class App extends Component {
   render() {
@@ -35,6 +37,11 @@ class App extends Component {
                 />
                 <Route
                   exact
+                  path="/register"
+                  component={UserIsNotAuthenticated(Register)}
+                />
+                <Route
+                  exact
                   path="/client/add"
                   component={UserIsAuthenticated(AddClient)}
                 />
@@ -47,6 +54,11 @@ class App extends Component {
                   exact
                   path="/client/:id"
                   component={UserIsAuthenticated(ClientDetails)}
+                />
+                <Route
+                  exact
+                  path="/settings"
+                  component={UserIsAuthenticated(Settings)}
                 />
               </Switch>
             </div>
